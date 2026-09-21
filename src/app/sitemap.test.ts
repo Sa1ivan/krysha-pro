@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 
-import sitemap from "./sitemap";
+import sitemap, { dynamic } from "./sitemap";
 
 const originalSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -10,6 +10,10 @@ afterEach(() => {
 });
 
 describe("sitemap", () => {
+  it("is generated during the static export", () => {
+    expect(dynamic).toBe("force-static");
+  });
+
   it("does not claim a fresh update when content has not changed", () => {
     process.env.NEXT_PUBLIC_SITE_URL = "https://krovlya.example.ru";
 
