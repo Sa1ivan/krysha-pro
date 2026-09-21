@@ -17,5 +17,8 @@ describe("home page", () => {
     expect(markup).not.toContain("Кровля коттеджа с водостоками");
     expect(markup).toContain("pb-20");
     expect(markup).toContain("lg:pb-0");
+    expect(markup).toContain('data-metrica-goal="phone_click"');
+    expect(markup).toContain('data-metrica-goal="whatsapp_click"');
+    expect(markup).toContain('data-metrica-goal="avito_click"');
   });
 });

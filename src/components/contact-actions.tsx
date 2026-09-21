@@ -30,6 +30,7 @@ export function ContactActions({ compact = false }: ContactActionsProps) {
       <div className={compact ? "grid grid-cols-3 gap-2" : "flex flex-wrap gap-3"}>
         <a
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#c85d35] px-5 text-sm font-bold text-white transition hover:bg-[#df7047] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f1b388]"
+          data-metrica-goal="phone_click"
           href={`tel:${siteContent.phone.e164}`}
         >
           <Phone aria-hidden="true" size={18} />
@@ -38,6 +39,7 @@ export function ContactActions({ compact = false }: ContactActionsProps) {
         <a
           aria-label="Рассчитать по фото в WhatsApp"
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f1b388]"
+          data-metrica-goal="whatsapp_click"
           href={siteContent.whatsappUrl}
           rel="noreferrer"
           target="_blank"

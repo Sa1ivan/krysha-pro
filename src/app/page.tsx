@@ -71,7 +71,7 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <a className="hidden rounded-full border border-white/25 px-4 py-2 text-sm font-bold text-white transition hover:bg-white hover:text-[#171a19] sm:inline-flex" href={`tel:${siteContent.phone.e164}`}>
+          <a className="hidden rounded-full border border-white/25 px-4 py-2 text-sm font-bold text-white transition hover:bg-white hover:text-[#171a19] sm:inline-flex" data-metrica-goal="phone_click" href={`tel:${siteContent.phone.e164}`}>
             {siteContent.phone.display}
           </a>
         </div>
@@ -134,7 +134,7 @@ export default function Home() {
               <p className="mt-6 max-w-md text-base leading-7 text-[#b6bdb8]">
                 Выполняем как полный комплекс работ, так и ремонт отдельных участков: от протечки до замены покрытия, стропил и обрешётки.
               </p>
-              <a className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#f4aa89] transition hover:text-white" href={siteContent.whatsappUrl} rel="noreferrer" target="_blank">
+              <a className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#f4aa89] transition hover:text-white" data-metrica-goal="whatsapp_click" href={siteContent.whatsappUrl} rel="noreferrer" target="_blank">
                 Получить расчёт по фото <ChevronRight aria-hidden="true" size={18} />
               </a>
             </div>
@@ -241,7 +241,7 @@ export default function Home() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#ffe0d3]">Позвоните или отправьте фото объекта. Telegram и MAX: скопируйте номер и найдите контакт в мессенджере.</p>
               <div className="mt-8 max-w-xl"><ContactActions /></div>
             </div>
-            <a className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#171a19] px-5 py-4 text-sm font-black text-white transition hover:bg-black" href={siteContent.avitoUrl} rel="noreferrer" target="_blank">
+            <a className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#171a19] px-5 py-4 text-sm font-black text-white transition hover:bg-black" data-metrica-goal="avito_click" href={siteContent.avitoUrl} rel="noreferrer" target="_blank">
               Посмотреть объявление на Avito <ArrowUpRight aria-hidden="true" size={18} />
             </a>
           </div>
@@ -251,7 +251,7 @@ export default function Home() {
       <footer className="border-t border-white/10 px-5 py-8 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-[#aeb7b1] sm:flex-row sm:items-center sm:justify-between">
           <p>Кровельные работы под ключ · Выселки, Краснодарский край</p>
-          <a className="font-bold text-white transition hover:text-[#ef9a73]" href={`tel:${siteContent.phone.e164}`}>{siteContent.phone.display}</a>
+          <a className="font-bold text-white transition hover:text-[#ef9a73]" data-metrica-goal="phone_click" href={`tel:${siteContent.phone.e164}`}>{siteContent.phone.display}</a>
         </div>
       </footer>
 
