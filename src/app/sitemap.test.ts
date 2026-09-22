@@ -19,4 +19,19 @@ describe("sitemap", () => {
 
     expect(sitemap()[0]).not.toHaveProperty("lastModified");
   });
+
+  it("lists the home page and every service page", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://krovlya.example.ru";
+
+    expect(sitemap().map((entry) => entry.url)).toEqual([
+      "https://krovlya.example.ru/",
+      "https://krovlya.example.ru/uslugi/montazh-krovli/",
+      "https://krovlya.example.ru/uslugi/myagkaya-krovlya/",
+      "https://krovlya.example.ru/uslugi/vodostochnye-sistemy/",
+      "https://krovlya.example.ru/uslugi/snegozaderzhateli/",
+      "https://krovlya.example.ru/uslugi/mansardnye-okna/",
+      "https://krovlya.example.ru/uslugi/montazh-karniza/",
+      "https://krovlya.example.ru/uslugi/remont-krovli/",
+    ]);
+  });
 });

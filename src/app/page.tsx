@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -99,7 +100,7 @@ export default function Home() {
               Монтаж и ремонт кровли под ключ в Выселках и Краснодарском крае
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d5dad6] sm:text-xl">
-              Новые крыши, капитальный ремонт и реконструкция объектов любой сложности. Рассчитаем ориентировочную стоимость по фотографиям объекта.
+              Мастер Ильяс выполняет монтаж, капитальный ремонт и реконструкцию кровли. Рассчитаем ориентировочную стоимость по фотографиям объекта.
             </p>
             <div className="mt-9 max-w-xl">
               <ContactActions />
@@ -143,7 +144,11 @@ export default function Home() {
                 <article className="grid gap-3 border-b border-white/10 px-5 py-5 last:border-b-0 sm:grid-cols-[1fr_auto] sm:items-center sm:px-7" key={service.title}>
                   <div>
                     <p className="text-xs font-bold text-[#ef9a73]">0{index + 1}</p>
-                    <h3 className="mt-1 text-lg font-bold text-white">{service.title}</h3>
+                    <h3 className="mt-1 text-lg font-bold text-white">
+                      <Link className="transition hover:text-[#f4aa89]" href={`/uslugi/${service.slug}/`}>
+                        {service.title}
+                      </Link>
+                    </h3>
                     <p className="mt-1 text-sm leading-5 text-[#aeb7b1]">{service.description}</p>
                   </div>
                   <p className="shrink-0 text-left text-lg font-black text-white sm:text-right">
@@ -225,9 +230,19 @@ export default function Home() {
         <section className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-10">
           <div>
             <p className="text-sm font-bold tracking-[0.14em] text-[#ef9a73] uppercase">География работ</p>
-            <h2 className="mt-4 text-4xl leading-none font-black tracking-[-0.045em] sm:text-5xl">Основная работа — в Краснодарском крае</h2>
-            <p className="mt-6 text-base leading-7 text-[#b6bdb8]">Базируемся в Выселках. Работаем с частными домами, гаражами, банями, складами, офисными и коммерческими объектами. Выезд в другие регионы России согласуется по объёму и задаче.</p>
-            <div className="mt-8 flex gap-3 rounded-2xl border border-[#ef9a73]/25 bg-[#c85d35]/10 p-5 text-sm leading-6 text-[#f6c6b3]"><MapPinned aria-hidden="true" className="mt-0.5 shrink-0" size={20} />Для расчёта отправьте город или район вместе с фотографиями крыши.</div>
+            <h2 className="mt-4 text-4xl leading-none font-black tracking-[-0.045em] sm:text-5xl">Работаем в Краснодарском крае и выезжаем по России</h2>
+            <p className="mt-6 text-base leading-7 text-[#b6bdb8]">Мастер Ильяс базируется в Выселках и работает с частными и коммерческими объектами. Выезд в другие регионы согласуется по объёму, срокам и логистике.</p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-[#202522] p-5">
+                <p className="text-sm font-bold text-white">Краснодарский край</p>
+                <p className="mt-3 text-sm leading-6 text-[#b6bdb8]">{siteContent.serviceAreas.krasnodarKrai.join(" · ")}</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-[#202522] p-5">
+                <p className="text-sm font-bold text-white">Крупные города России</p>
+                <p className="mt-3 text-sm leading-6 text-[#b6bdb8]">{siteContent.serviceAreas.majorRussianCities.join(" · ")}</p>
+              </div>
+            </div>
+            <div className="mt-4 flex gap-3 rounded-2xl border border-[#ef9a73]/25 bg-[#c85d35]/10 p-5 text-sm leading-6 text-[#f6c6b3]"><MapPinned aria-hidden="true" className="mt-0.5 shrink-0" size={20} />Для расчёта отправьте город или район вместе с фотографиями крыши.</div>
           </div>
           <div className="rounded-3xl border border-white/10 bg-[#202522] px-6 py-3 sm:px-8"><FaqAccordion items={siteContent.faqs} /></div>
         </section>
@@ -238,7 +253,7 @@ export default function Home() {
             <div className="max-w-3xl">
               <p className="text-sm font-bold tracking-[0.14em] text-[#2e1810] uppercase">Начните с расчёта</p>
               <h2 className="mt-4 text-4xl leading-none font-black tracking-[-0.05em] text-white sm:text-6xl">Покажите крышу — сориентируем по работам</h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#ffe0d3]">Позвоните или отправьте фото объекта. Telegram и MAX: скопируйте номер и найдите контакт в мессенджере.</p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#ffe0d3]">На связи Мастер Ильяс — {siteContent.master.hours}. Позвоните или отправьте фото объекта. Telegram и MAX: скопируйте номер и найдите контакт в мессенджере.</p>
               <div className="mt-8 max-w-xl"><ContactActions /></div>
             </div>
             <a className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#171a19] px-5 py-4 text-sm font-black text-white transition hover:bg-black" data-metrica-goal="avito_click" href={siteContent.avitoUrl} rel="noreferrer" target="_blank">
@@ -250,7 +265,7 @@ export default function Home() {
 
       <footer className="border-t border-white/10 px-5 py-8 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-[#aeb7b1] sm:flex-row sm:items-center sm:justify-between">
-          <p>Кровельные работы под ключ · Выселки, Краснодарский край</p>
+          <p>{siteContent.master.displayName} · Выселки, Краснодарский край · {siteContent.master.hours}</p>
           <a className="font-bold text-white transition hover:text-[#ef9a73]" data-metrica-goal="phone_click" href={`tel:${siteContent.phone.e164}`}>{siteContent.phone.display}</a>
         </div>
       </footer>

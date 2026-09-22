@@ -13,6 +13,28 @@ describe("site content", () => {
     );
   });
 
+  it("gives every listed service its own stable search URL", () => {
+    expect(siteContent.services.map((service) => service.slug)).toEqual([
+      "montazh-krovli",
+      "myagkaya-krovlya",
+      "vodostochnye-sistemy",
+      "snegozaderzhateli",
+      "mansardnye-okna",
+      "montazh-karniza",
+      "remont-krovli",
+    ]);
+  });
+
+  it("identifies Ilyas as the master and names the declared service areas", () => {
+    expect(siteContent).toMatchObject({
+      master: { name: "Ильяс", hours: "Ежедневно, 9:00–20:00" },
+      serviceAreas: {
+        krasnodarKrai: expect.arrayContaining(["Выселки", "Краснодар", "Сочи"]),
+        majorRussianCities: expect.arrayContaining(["Москва", "Санкт-Петербург"]),
+      },
+    });
+  });
+
   it("describes services and FAQs without fabricated review markup", () => {
     const schemas = buildStructuredData();
     const schemaTypes = schemas.map((schema) => schema["@type"]);

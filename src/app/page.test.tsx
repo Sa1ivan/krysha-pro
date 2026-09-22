@@ -20,5 +20,9 @@ describe("home page", () => {
     expect(markup).toContain('data-metrica-goal="phone_click"');
     expect(markup).toContain('data-metrica-goal="whatsapp_click"');
     expect(markup).toContain('data-metrica-goal="avito_click"');
+    expect(markup).toContain("Мастер Ильяс");
+    expect(markup).toContain("Ежедневно, 9:00–20:00");
+    expect(markup).toContain("Краснодар");
+    expect(markup).toContain("Москва");
   });
 });
